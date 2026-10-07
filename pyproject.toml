@@ -1,0 +1,63 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "songfinder-bot"
+version = "0.1.0"
+description = "Telegram-бот для распознавания музыки по фрагменту аудио или видео"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "aiogram==3.31.0",
+    "shazamio==0.8.1",
+    "aiohttp==3.14.4",
+    "SQLAlchemy[asyncio]==2.1.3",
+    "greenlet==3.5.6",
+    "aiosqlite==0.22.1",
+    "alembic==1.20.0",
+    "pydantic-settings==2.15.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==9.1.1",
+    "pytest-asyncio==1.4.0",
+    "pytest-cov==7.1.0",
+    "ruff==0.16.10",
+    "mypy==2.4.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["bot*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["bot/services"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["migrations/versions"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "ASYNC", "SIM", "RUF"]
+ignore = ["RUF001", "RUF002", "RUF003"]  # кириллица в строках и комментариях
+
+[tool.ruff.lint.per-file-ignores]
+# В тестах синхронный ffmpeg и работа с tmp_path допустимы.
+"tests/*" = ["ASYNC109", "ASYNC221", "ASYNC240"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+packages = ["bot", "tests"]
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = ["shazamio.*"]
+ignore_missing_imports = true

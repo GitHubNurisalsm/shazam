@@ -1,0 +1,1 @@
+{"status": "error", "error": {"error_code": 900, "error_message": "Recognition failed: authorization failed: no api_token passed and the limit was reached."}}

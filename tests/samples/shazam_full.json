@@ -1,0 +1,40 @@
+{
+  "matches": [{"id": "1", "offset": 12.3}],
+  "track": {
+    "key": "512345678",
+    "title": "Blinding Lights",
+    "subtitle": "The Weeknd",
+    "url": "https://www.shazam.com/track/512345678/blinding-lights",
+    "images": {
+      "coverart": "https://is1-ssl.mzstatic.com/image/thumb/400x400cc.jpg",
+      "coverarthq": "https://is1-ssl.mzstatic.com/image/thumb/800x800cc.jpg"
+    },
+    "genres": {"primary": "Pop"},
+    "hub": {
+      "type": "APPLEMUSIC",
+      "actions": [
+        {"name": "apple", "type": "applemusicplay", "id": "1499378615"},
+        {"name": "apple", "type": "uri", "uri": "https://audio-ssl.itunes.apple.com/preview.m4a"}
+      ],
+      "options": [
+        {
+          "caption": "OPEN",
+          "actions": [
+            {"name": "hub:applemusic:deeplink", "type": "applemusicopen", "uri": "https://music.apple.com/us/album/blinding-lights/1499378108?i=1499378615"}
+          ]
+        }
+      ]
+    },
+    "sections": [
+      {
+        "type": "SONG",
+        "metadata": [
+          {"title": "Album", "text": "After Hours"},
+          {"title": "Label", "text": "Republic Records"},
+          {"title": "Released", "text": "2020"}
+        ]
+      },
+      {"type": "LYRICS", "text": ["..."]}
+    ]
+  }
+}
